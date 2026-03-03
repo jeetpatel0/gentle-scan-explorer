@@ -17,30 +17,30 @@ export function Hero() {
           className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: `radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)`,
-            backgroundSize: "40px 40px",
-          }}
-        />
+            backgroundSize: "40px 40px"
+          }} />
+        
 
         {/* Floating particles */}
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1.5 h-1.5 rounded-full bg-primary/15"
-            style={{
-              left: `${10 + i * 11}%`,
-              top: `${15 + (i % 4) * 20}%`,
-            }}
-            animate={{
-              y: [0, -25, 0],
-              opacity: [0.15, 0.4, 0.15],
-            }}
-            transition={{
-              duration: 5 + i * 0.7,
-              repeat: Infinity,
-              delay: i * 0.4,
-            }}
-          />
-        ))}
+        {[...Array(8)].map((_, i) =>
+        <motion.div
+          key={i}
+          className="absolute w-1.5 h-1.5 rounded-full bg-primary/15"
+          style={{
+            left: `${10 + i * 11}%`,
+            top: `${15 + i % 4 * 20}%`
+          }}
+          animate={{
+            y: [0, -25, 0],
+            opacity: [0.15, 0.4, 0.15]
+          }}
+          transition={{
+            duration: 5 + i * 0.7,
+            repeat: Infinity,
+            delay: i * 0.4
+          }} />
+
+        )}
 
         {/* Animated connection lines */}
         <svg className="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
@@ -49,27 +49,27 @@ export function Hero() {
             stroke="hsl(var(--primary))" strokeWidth="1"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
-            transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
-          />
+            transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }} />
+          
           <motion.line
             x1="60%" y1="20%" x2="85%" y2="70%"
             stroke="hsl(var(--primary))" strokeWidth="1"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
-            transition={{ duration: 4, delay: 1, repeat: Infinity, repeatType: "reverse" }}
-          />
+            transition={{ duration: 4, delay: 1, repeat: Infinity, repeatType: "reverse" }} />
+          
           <motion.circle
             cx="40%" cy="60%" r="3"
             fill="hsl(var(--primary))"
             animate={{ opacity: [0.1, 0.4, 0.1] }}
-            transition={{ duration: 3, repeat: Infinity }}
-          />
+            transition={{ duration: 3, repeat: Infinity }} />
+          
           <motion.circle
             cx="85%" cy="70%" r="3"
             fill="hsl(var(--primary))"
             animate={{ opacity: [0.1, 0.4, 0.1] }}
-            transition={{ duration: 4, delay: 1, repeat: Infinity }}
-          />
+            transition={{ duration: 4, delay: 1, repeat: Infinity }} />
+          
         </svg>
       </div>
 
@@ -78,20 +78,20 @@ export function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col items-start"
-        >
+          className="flex flex-col items-start">
+          
           {/* Full logo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="mb-10"
-          >
+            className="mb-10">
+            
             <img
-              src={logoFull}
+
               alt="Lyosha Research Centre"
-              className="h-20 md:h-28 w-auto"
-            />
+              className="h-20 md:h-28 w-auto object-fill" src="/lovable-uploads/6c6c316f-5b48-4488-901f-feb2cb83c5f0.png" />
+            
           </motion.div>
 
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-serif font-bold leading-[1.1] mb-6 max-w-4xl">
@@ -116,6 +116,6 @@ export function Hero() {
           </div>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
