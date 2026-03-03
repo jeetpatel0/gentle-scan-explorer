@@ -99,6 +99,10 @@ export function Hero() {
             <span className="gradient-text">Changing Global Market</span>
           </h1>
 
+          <p className="font-mono text-sm md:text-base tracking-[0.15em] text-primary/70 mb-6 uppercase">
+            Where Innovation Meets Precision. Precision Creates Impact.
+          </p>
+
           <p className="section-body mb-10 max-w-2xl">
             Lyosha Research Centre (LRC) is a specialist R&D platform focused on complex
             sterile injectables and advanced drug delivery systems. We develop high-barrier
