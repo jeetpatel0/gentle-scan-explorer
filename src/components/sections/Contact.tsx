@@ -18,9 +18,9 @@ export function Contact() {
 
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-10">
             <Button variant="hero" size="lg" asChild>
-              <a href="mailto:info@lyosharesearch.com">
+              <a href="mailto:lyosharesearch@gmail.com">
                 <Mail className="w-4 h-4 mr-2" />
-                info@lyosharesearch.com
+                lyosharesearch@gmail.com
               </a>
             </Button>
             <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm">
