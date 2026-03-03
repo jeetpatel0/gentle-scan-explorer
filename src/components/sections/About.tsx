@@ -46,7 +46,7 @@ export function About() {
 
         {/* Decorative divider */}
         <AnimatedSection delay={0.3}>
-          <div className="w-24 h-px bg-primary/30 mx-auto" />
+          
         </AnimatedSection>
       </div>
     </section>);
