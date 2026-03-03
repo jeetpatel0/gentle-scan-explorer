@@ -1,7 +1,6 @@
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { motion } from "framer-motion";
 import { Atom, Droplets, FlaskConical, Syringe, Heart, Eye } from "lucide-react";
-import platformsMolecularImage from "@/assets/platforms-molecular.jpg";
 
 const platforms = [
   {
@@ -38,32 +37,24 @@ const platforms = [
 
 export function Platforms() {
   return (
-    <section id="platforms" className="border-t border-border">
-      <div className="section-container">
-        {/* Header with image */}
-        <div className="grid lg:grid-cols-5 gap-10 mb-14">
-          <div className="lg:col-span-3">
-            <AnimatedSection>
-              <span className="section-label">What We Work On</span>
-              <h2 className="section-headline">High-Impact Formulation Platforms Where Capability Is Scarce</h2>
-              <p className="section-body">
-                We focus on a narrow band of high-impact formulation platforms where capability
-                is scarce and demand is growing. Across these platforms, our work connects
-                therapeutic need with the right delivery system and documentation pathway —
-                rather than chasing commodity products.
-              </p>
-            </AnimatedSection>
-          </div>
-          <AnimatedSection delay={0.2} className="lg:col-span-2">
-            <div className="image-card aspect-square shadow-lg">
-              <img
-                src={platformsMolecularImage}
-                alt="Molecular drug delivery visualization"
-                loading="lazy"
-              />
-            </div>
-          </AnimatedSection>
-        </div>
+    <section id="platforms" className="relative border-t border-border overflow-hidden">
+      {/* Subtle background animation */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-80 h-80 rounded-full bg-primary/[0.03] blur-[100px] animate-pulse-slow" />
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full bg-accent/[0.04] blur-[80px] animate-float" style={{ animationDelay: "1s" }} />
+      </div>
+
+      <div className="section-container relative z-10">
+        <AnimatedSection>
+          <span className="section-label">What We Work On</span>
+          <h2 className="section-headline">High-Impact Formulation Platforms Where Capability Is Scarce</h2>
+          <p className="section-body mb-14">
+            We focus on a narrow band of high-impact formulation platforms where capability
+            is scarce and demand is growing. Across these platforms, our work connects
+            therapeutic need with the right delivery system and documentation pathway —
+            rather than chasing commodity products.
+          </p>
+        </AnimatedSection>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {platforms.map((p, i) => (
