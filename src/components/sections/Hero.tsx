@@ -112,7 +112,7 @@ export function Hero() {
 
           <div className="flex flex-wrap gap-4 mb-16">
             <Button variant="hero" size="lg" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
-              Contact Us for a Technical Discussion
+              Contact Us for a Platform Discussion
             </Button>
             <Button variant="hero-outline" size="lg" onClick={() => document.getElementById("platforms")?.scrollIntoView({ behavior: "smooth" })}>
               What We Work On
