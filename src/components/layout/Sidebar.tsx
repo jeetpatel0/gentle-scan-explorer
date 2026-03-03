@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import logoIcon from "@/assets/logo-icon.png";
 
 const sections = [
   { id: "hero", label: "Home" },
@@ -18,11 +19,9 @@ const sections = [
 export function Sidebar() {
   const [active, setActive] = useState("hero");
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
   const handleScroll = useCallback(() => {
     const scrollY = window.scrollY + 200;
-    setScrolled(window.scrollY > 100);
     for (let i = sections.length - 1; i >= 0; i--) {
       const el = document.getElementById(sections[i].id);
       if (el && el.offsetTop <= scrollY) {
@@ -64,8 +63,13 @@ export function Sidebar() {
     <>
       {/* Desktop sidebar */}
       <aside className="hidden lg:flex fixed left-0 top-0 h-screen w-60 flex-col border-r border-border bg-sidebar z-40">
-        <div className="p-5 border-b border-border">
-          <h2 className="text-lg font-serif font-bold text-foreground">Lyosha Research Centre</h2>
+        <div className="p-5 border-b border-border flex flex-col items-center">
+          <img
+            src={logoIcon}
+            alt="LRC Logo"
+            className="w-24 h-auto mb-3 logo-glow"
+          />
+          <h2 className="text-base font-serif font-bold text-foreground">Lyosha Research Centre</h2>
           <p className="font-mono text-[9px] tracking-[0.15em] text-primary/70 mt-1 uppercase">Complex Formulation R&D</p>
         </div>
         <div className="flex-1 overflow-y-auto p-4">
@@ -79,7 +83,10 @@ export function Sidebar() {
 
       {/* Mobile header */}
       <header className="lg:hidden fixed top-0 left-0 right-0 h-14 bg-background/80 backdrop-blur-md border-b border-border z-50 flex items-center justify-between px-4">
-        <h2 className="text-base font-serif font-bold text-foreground">LRC</h2>
+        <div className="flex items-center gap-2">
+          <img src={logoIcon} alt="LRC Logo" className="w-8 h-auto" />
+          <h2 className="text-base font-serif font-bold text-foreground">LRC</h2>
+        </div>
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <button onClick={() => setOpen(!open)} className="p-2 rounded-md hover:bg-muted" aria-label="Menu">

@@ -1,48 +1,76 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import heroLabImage from "@/assets/hero-lab.jpg";
+import logoFull from "@/assets/logo-full.png";
 
 export function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background image with overlay */}
-      <div className="absolute inset-0">
-        <img
-          src={heroLabImage}
-          alt="Pharmaceutical laboratory"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-background/85 dark:bg-background/90" />
-      </div>
-
-      {/* Floating orbs */}
+      {/* Animated background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-primary/5 blur-3xl animate-float" />
-        <div className="absolute bottom-20 -left-20 w-72 h-72 rounded-full bg-accent/5 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/[0.03] blur-[120px] animate-pulse-slow" />
-      </div>
+        {/* Soft gradient orbs */}
+        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-primary/[0.07] blur-[100px] animate-float" />
+        <div className="absolute bottom-20 -left-20 w-96 h-96 rounded-full bg-accent/[0.06] blur-[80px] animate-float" style={{ animationDelay: "2s" }} />
+        <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] rounded-full bg-primary/[0.04] blur-[120px] animate-pulse-slow" />
 
-      {/* Floating particles */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(6)].map((_, i) => (
+        {/* Subtle grid pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
+
+        {/* Floating particles */}
+        {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 rounded-full bg-primary/20"
+            className="absolute w-1.5 h-1.5 rounded-full bg-primary/15"
             style={{
-              left: `${15 + i * 15}%`,
-              top: `${20 + (i % 3) * 25}%`,
+              left: `${10 + i * 11}%`,
+              top: `${15 + (i % 4) * 20}%`,
             }}
             animate={{
-              y: [0, -30, 0],
-              opacity: [0.2, 0.5, 0.2],
+              y: [0, -25, 0],
+              opacity: [0.15, 0.4, 0.15],
             }}
             transition={{
-              duration: 4 + i,
+              duration: 5 + i * 0.7,
               repeat: Infinity,
-              delay: i * 0.5,
+              delay: i * 0.4,
             }}
           />
         ))}
+
+        {/* Animated connection lines */}
+        <svg className="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
+          <motion.line
+            x1="10%" y1="30%" x2="40%" y2="60%"
+            stroke="hsl(var(--primary))" strokeWidth="1"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
+          />
+          <motion.line
+            x1="60%" y1="20%" x2="85%" y2="70%"
+            stroke="hsl(var(--primary))" strokeWidth="1"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 4, delay: 1, repeat: Infinity, repeatType: "reverse" }}
+          />
+          <motion.circle
+            cx="40%" cy="60%" r="3"
+            fill="hsl(var(--primary))"
+            animate={{ opacity: [0.1, 0.4, 0.1] }}
+            transition={{ duration: 3, repeat: Infinity }}
+          />
+          <motion.circle
+            cx="85%" cy="70%" r="3"
+            fill="hsl(var(--primary))"
+            animate={{ opacity: [0.1, 0.4, 0.1] }}
+            transition={{ duration: 4, delay: 1, repeat: Infinity }}
+          />
+        </svg>
       </div>
 
       <div className="section-container relative z-10 pt-20 lg:pt-0">
@@ -52,27 +80,19 @@ export function Hero() {
           transition={{ duration: 0.8 }}
           className="flex flex-col items-start"
         >
-          {/* Company name */}
+          {/* Full logo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="mb-2"
+            className="mb-10"
           >
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold gradient-text">
-              Lyosha Research Centre
-            </h2>
+            <img
+              src={logoFull}
+              alt="Lyosha Research Centre"
+              className="h-20 md:h-28 w-auto"
+            />
           </motion.div>
-
-          {/* Tagline */}
-          <motion.p
-            className="font-mono text-[10px] md:text-xs tracking-[0.25em] text-primary/80 mb-12 uppercase"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-          >
-            Where Innovation Meets Precision. Precision Creates Impact.
-          </motion.p>
 
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-serif font-bold leading-[1.1] mb-6 max-w-4xl">
             Complex Injectable Formulations, Built for a{" "}
