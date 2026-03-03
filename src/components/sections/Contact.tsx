@@ -30,7 +30,12 @@ export function Contact() {
           </div>
         </AnimatedSection>
 
-        <div className="mt-20 pt-8 border-t border-border">
+        <div className="mt-20 pt-8 border-t border-border flex flex-col items-center">
+          <img
+            src="/lovable-uploads/6c6c316f-5b48-4488-901f-feb2cb83c5f0.png"
+            alt="Lyosha Research Centre"
+            className="h-16 md:h-20 w-auto mb-4"
+          />
           <p className="font-mono text-xs text-primary/70 mb-2 italic">
             Where Innovation Meets Precision. Precision Creates Impact.
           </p>

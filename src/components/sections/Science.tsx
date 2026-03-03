@@ -38,62 +38,16 @@ export function Science() {
       </div>
 
       <div className="section-container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-14">
-          {/* Animated visual replacing photo */}
-          <AnimatedSection>
-            <div className="relative aspect-[4/3] rounded-2xl border border-border/30 bg-card/50 overflow-hidden">
-              <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                {/* Concentric rings */}
-                {[80, 120, 160, 200].map((r, i) => (
-                  <motion.circle
-                    key={i}
-                    cx="50%"
-                    cy="50%"
-                    r={r}
-                    fill="none"
-                    stroke="hsl(var(--primary))"
-                    strokeWidth="0.5"
-                    initial={{ opacity: 0.05 }}
-                    animate={{ opacity: [0.05, 0.15, 0.05], scale: [1, 1.02, 1] }}
-                    transition={{ duration: 4 + i, repeat: Infinity, delay: i * 0.5 }}
-                  />
-                ))}
-                {/* Orbiting dots */}
-                {[0, 1, 2].map((i) => (
-                  <motion.circle
-                    key={`dot-${i}`}
-                    cx="50%"
-                    cy="50%"
-                    r="3"
-                    fill="hsl(var(--primary))"
-                    animate={{
-                      opacity: [0.1, 0.4, 0.1],
-                      cx: [`${45 + i * 8}%`, `${55 - i * 5}%`, `${45 + i * 8}%`],
-                      cy: [`${40 + i * 10}%`, `${60 - i * 8}%`, `${40 + i * 10}%`],
-                    }}
-                    transition={{ duration: 5 + i * 2, repeat: Infinity }}
-                  />
-                ))}
-              </svg>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary/40">
-                  Platform · Rigour · Design
-                </p>
-              </div>
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.15}>
-            <span className="section-label">Our Scientific Direction</span>
-            <h2 className="section-headline">Platform Thinking, Regulatory Rigour</h2>
-            <p className="section-body">
-              While we do not disclose product-level details at this stage, our scientific
-              direction is clear. The lab infrastructure being set up is chosen backwards
-              from these needs, not for optics: each instrument must answer a specific
-              formulation or stability question in our target platforms.
-            </p>
-          </AnimatedSection>
-        </div>
+        <AnimatedSection>
+          <span className="section-label">Our Scientific Direction</span>
+          <h2 className="section-headline">Platform Thinking, Regulatory Rigour</h2>
+          <p className="section-body mb-14">
+            While we do not disclose product-level details at this stage, our scientific
+            direction is clear. The lab infrastructure being set up is chosen backwards
+            from these needs, not for optics: each instrument must answer a specific
+            formulation or stability question in our target platforms.
+          </p>
+        </AnimatedSection>
 
         <div className="space-y-5">
           {directions.map((d, i) => (
